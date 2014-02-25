@@ -37,9 +37,9 @@ class Engine(object):
             # clear screen for next scene
             for i in range(100):
                 print ""
-                
+        
             current_scene = self.scene_map.next_scene(next_scene_name)        
-      
+            print "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
         
 class Bathroom(Scene):
     
@@ -83,26 +83,21 @@ class Bathroom(Scene):
 class ToothDialogue(Scene):
     
     def enter(self):
-        print "You lean in closer to the mirror to examine the suspect tooth." 
-        print "It's more discolored than you thought. In fact ... "
-        print "there's a concave arc lined with tiny little hairs."
-        print "It looks just like ..."
-        print "All of a sudden, the little hairs flutter, and the concave arc moves," 
-        print "opening up into a brilliant, bright green eye."
-        print "You want to scream, but all of the air has rushed out of your lungs."
-        print "The eye blinks at you, innocently, and then you hear a voice in your head." 
-        print "A thin, whispery voice."
-        print "'I am your inner voice,' it says. 'Your true essential self; your deepest wisdom.'"
-        print "'Shouldn't that be the role of my wisdom teeth?' you think."
-        print "You hear a sigh. 'You had them extracted in the 10th grade, remember?"
-        print "We eye teeth are heirs to their throne."
-        print "You realize the eye tooth can read your mind."
-        print "'Why is it just you? What happened to my other eye tooth?'"
-        print "'He's kind of a deadbeat, to be honest. I'm all you've got now."
-        print "'So why now? What do you want from me?"
-        print "'The question is, what do you want from me? I'm only here because you need me."
-        print "'If you can answer all three of my questions correctly, I'll grant you a wish."
-        print "Are you game?"        
+        print "What the?!?\n"
+        print "You see that the eye tooth has a brilliant, bright green eye."
+        print "The eye blinks at you innocently,"
+        print "and then you hear a thin, whispery voice.\n" 
+        print "TOOTH: I am your inner voice. Your true essential self; your deepest wisdom.\n"
+        print "YOU: Shouldn't that be the role of my wisdom teeth?\n"
+        print "TOOTH: You had them extracted, remember?"
+        print "We eye teeth are heirs to their throne.\n"
+        print "YOU: So why is it just you? What happened to my other eye tooth?\n"
+        print "TOOTH: Oh, him? He's kind of a deadbeat. I'm all you've got now.\n"
+        print "YOU: So why now? What do you want from me?\n"
+        print "TOOTH: The question is, what do you want from me?"
+        print "If you can answer all three of my questions correctly,"
+        print "I can make you very happy."
+        print "Are you game?\n"        
                 
         while True:
             
@@ -148,8 +143,10 @@ class Riddle(Scene):
 class RiddleOne(Riddle):
     
     def enter(self):
-        print "Your eye tooth clears its throat. 'The first riddle is the easiest."
-        print "What is the name of a surface with only one side and only one boundary component?"
+        print "Your eye tooth clears its throat."
+        print "'The first riddle is the easiest,' it says.\n"
+        print "'What is the name of a surface with only one side"
+        print "and only one boundary component?'"
         
         answer = raw_input("> ")
         answer = answer.lower()
@@ -161,9 +158,12 @@ class RiddleOne(Riddle):
             return 'wake'
                 
         else:
+            for i in range(100):
+                print ""
             print "'Wow. I don't think you even tried,' says the eye tooth."
             print "'I don't know why I even waste my time.' And with that, the eye closes, and"
-            print "your tooth goes back to normal."
+            print "your tooth goes back to normal.\n"
+            print "You decide the whole thing must have been a hallucination.\n"
             print "(Hit 'Enter' to continue)"
             answer = raw_input()
             return "brush_teeth"
@@ -172,52 +172,65 @@ class RiddleOne(Riddle):
 class RiddleTwo(Riddle):
     
     def enter(self):
-        print "'That's right! Congratulations. Hey, remember that '80s band Pop Will Eat Itself?' asks the eye tooth. I really liked "
-        print "'them. Anyway, your second riddle is this: What is the name of the serpent that eats "
-        print "its own tail?"
+        print "'That's right!' the tooth says."
+        print "'Hey, remember that '80s band Pop Will Eat Itself?' asks the tooth."
+        print "'They were cool. Anyway, your second riddle is this:'\n"
+        print "What is the name of the serpent that eats its own tail?"
         
         answer = raw_input("> ")
         answer = answer.lower()
         
-        if answer.__contains__("uroboros"):
-            
+        if answer.__contains__("uroboros"):  
             return "riddle3"
         
         else:
+            for i in range(100):
+                print ""
             print "'Geez louise,' says the eye tooth."
-            print "'That serpent may have its ass up its head, but you have it the other way around.'"
-            print "And with that, the eye closes, and your tooth goes back to normal."
+            print "'That serpent may have its ass up its head,"
+            print "but you have it the other way around.'"
+            print "And with that, the eye closes, and your tooth goes back to normal.\n"
+            print "(Hit 'Enter' to continue)"
+            answer = raw_input()
             return "brush_teeth"
 
 
 class RiddleThree(Riddle):
     
     def enter(self):
-        print "'You got it! Okay, last one, and then I'll grant you a wish. You're really close!' the eye says,"
-        print "'don't screw it up. Here you go: What is the last name of the strange loop who's most popular"
-        print "work is often referred to by its acronym, G.E.B.?"
+        print "'You got it!' says the tooth."
+        print "'Okay, last one, and then I'll grant you a wish.'"
+        print "'You're really close!' the eye says, 'Don't screw it up:'\n"
+        print "What is the last name"
+        print "of the strange loop"
+        print "who's most popular work"
+        print "is often referred to by its acronym, G.E.B.?\n"
         
         answer = raw_input("> ")
         answer = answer.lower()
         
         if answer.__contains__("hofstadter"):
-            
             return "wishes"
         
         else:
-            print "You hear a groan. 'Really?? That's your answer?' The eye tooth closes its eye and "
-            print " disappears. You were so close! Or was it just a weird hallucination?"             
+            for i in range(100):
+                print ""
+            print "You hear a groan."
+            print "'Really?!? That's your answer?!?'"
+            print "The eye tooth closes its eye and disappears."
+            print "(Hit 'Enter' to continue)"
+            answer = raw_input()            
             return "brush_teeth"
 
 
 class Wishes(object):
     def enter(self):
         print "'Congratulations!' the eye tooth says, beaming with delight."
-        print "'You've correctly answered all three riddles."
+        print "'You've correctly answered all three riddles!!!'\n"
         print "For that, you have your choice of three options, each of them a dream come true:"
-        print "You can choose to be young again."
-        print "Or, you can choose to experience true love."
-        print "Or, you can choose to have the ability to fly."
+        print "1. You can choose to be young again."
+        print "2. You can choose to experience true love."
+        print "3. You can choose to have the ability to fly.\n"
         print "What will it be?"
 
         while True:
@@ -225,17 +238,21 @@ class Wishes(object):
             answer = raw_input("> ")
             answer = answer.lower()
 
-            if answer.__contains__("young"):
+            if answer.__contains__("young") or answer.__contains__("1"):
                     return "school"
             
-            elif answer.__contains__("love"):
+            elif answer.__contains__("love") or answer.__contains__("2"): 
                 return "sex"
         
-            elif answer.__contains__("fly"):
+            elif answer.__contains__("fly") or answer.__contains__("3"):
                 return "fly"
             
             else:
-                print "That wasn't one of your choices. Do you want to be young again, to have true love, or to fly?"
+                print "\nThat wasn't one of your choices."
+                print "Do you want:"
+                print "1. to be young again"
+                print "2. to have true love"
+                print "3. the ability to fly?\n"
                 continue
 
 
@@ -263,13 +280,21 @@ class Fly(object):
 class School(Scene):
     
     def enter(self):
-        print "You're suddenly in a large hallway filled with lockers. It looks like a high school. In fact ..."
-        print "it's YOUR high school! You look down and realize you're a teenager again ... and that you aren't"
-        print "wearing any pants. Or underwear, for that matter. Your heart starts racing. The hallway is empty"
-        print "but you look at your watch and realize the bell is going to ring in 2 minutes. Then everyone will"
-        print "come pouring out of the classrooms to find you buck naked from the waist down. You suddenly"
-        print "when you remember that you have some gym shorts in your locker. You can either make a run for a hiding"
-        print "place, or you can run to your locker and get out those shorts. What's it going to be?"
+        print "You're suddenly in a large hallway filled with lockers."
+        print "It looks like a high school. In fact ..."
+        print "it's YOUR high school!"
+        print "You look down and realize you're a teenager again ... \n"
+        print "and that you aren't wearing any pants." 
+        print "Or underwear, for that matter."
+        print "Your heart starts racing."
+        print "The hallway is empty but you look at your watch and realize"
+        print "that the bell is going to ring in 2 minutes."
+        print "Then everyone will come pouring out of the classrooms"
+        print "to find you buck naked from the waist down."
+        print "You suddenly remember that you have some gym shorts in your locker."
+        print "You can either make a run for a hiding place,"
+        print "or you can run to your locker and get out those shorts.\n"
+        print "What's it going to be?"
 
         while True:
         
@@ -292,8 +317,11 @@ class School(Scene):
 class Locker(Scene):
     
     def enter(self):
-        code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
-        guess = raw_input("[keypad]> ")
+        print "You run to your locker ...\n"
+        print "... and immediately draw a blank."
+        print "For the life of you, you can't remember your combination."
+        code = 303030# "%d%d%d" % (randint(30,39), randint(20,29), randint(40,49))
+        guess = raw_input() +  raw_input() + raw_input()
         guesses = 0
         
         while guess != code and guesses < 9:
@@ -362,21 +390,13 @@ class Wake(Scene):
     ]
     
     def enter(self):
-        print "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
         print "You wake up screaming." 
         print "Your heart is racing.\n"
-        print "Thank god! It was all just a bad dream."
-        print "Now you can go back to sleep and get some rest..."
-        print " "
-        print "... if you DARE!!!!!\n"
-        print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-        print " "
-        str = "GAME OVER"
-        print " "
-        print str.center(50, " ")
-        print " "
-        str = Wake.quips[randint(0, len(self.quips)-1)]
-        print str.center(50, " ")
+        print "Thank god! It was all just a bad dream.\n"
+        print "Now you can go back to sleep and get some rest...\n"
+        print "... if you DARE!!!!!\n\n\n".center(50, " ")
+        print "~~GAME OVER~~~\n".center(50, " ")
+        print Wake.quips[randint(0, len(self.quips)-1)].center(50, " ")
         exit(1)
            
             
