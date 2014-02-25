@@ -320,26 +320,51 @@ class Locker(Scene):
         print "You run to your locker ...\n"
         print "... and immediately draw a blank."
         print "For the life of you, you can't remember your combination."
-        code = 303030# "%d%d%d" % (randint(30,39), randint(20,29), randint(40,49))
-        guess = raw_input() +  raw_input() + raw_input()
+        print "All you remember is that the first number is in the 30s,"
+        print "the second number is in the 20s, and the third number is in the 40s."
+        print "You can squeeze in 10 tries before the bell rings."
+        print "Hurry!"
+        combo1, combo2, combo3 = randint(30,39), randint(20,29), randint(40,49)
+        print combo1, combo2, combo3
         guesses = 0
         
-        while guess != code and guesses < 9:
-            print "BZZZZEDDD!"
-            guesses += 1
-            guess = raw_input("[keypad]> ")
+        while guesses < 11:
             
-        if guess == code:
-            print "The container clicks open and the seal breaks, letting gas out."
-            print "You grab the neutron bomb and run as fast as you can to the"
-            print "bridge where you must place it in the right spot."
-       
-        else:
-            print "The lock buzzes one last time and then you hear a sickening"
-            print "melting sound as the mechanism is fused together."
-            print "You decide to sit there, and finally the Gothons blow up the"
-            print "ship from their ship and you die."
-
+            guess1 = int(raw_input("First number, in the 30s: "))
+            guess2 = int(raw_input("Second number, in the 20s: "))
+            guess3 = int(raw_input("Third number, in the 40s: "))
+            guesses += 1              
+            
+            if (guess1, guess2, guess3) == (combo1, combo2, combo3):
+                return "wake"
+            
+            elif guess1 == combo1 and guess2 != combo2 and guess3 != combo3:
+                print "You got the first number right! Try again! Hurry!"
+                continue
+            
+            elif guess2 == combo2 and guess1 != combo1 and guess3 != combo3:
+                print "You got the second number right! Try again! Hurry!"
+                continue
+                
+            elif guess3 == combo3 and guess1 != combo1 and guess2 != combo2:
+                print "You got the third number right! Try again! Hurry!"
+                continue
+                
+            elif guess1 == combo1 and guess2 == combo2:
+                print "You got the first and second number right! Try again! Hurry!"
+                continue
+            
+            elif guess1 == combo1 and guess3 == combo3:
+                print "You got the first and third number right! Try again! Hurry!"
+                continue
+                
+            elif guess2 == combo2 and guess3 == combo3:
+                print "You got the second and third number right! Try again! Hurry!"
+                continue
+            
+            else:
+                print "Wrong code! Try again! Hurry!"
+                continue
                         
 class Chase(Scene):
     
