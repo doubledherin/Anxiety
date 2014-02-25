@@ -1,97 +1,114 @@
 from sys import exit
 from random import randint
 
-def clear_screen():
-    i = 0
-    while i < 20:
-        print " "
-        i += 1
-    print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-    
-while True:
-    
-    if answer == "pinch myself":
-        Wake()
-    
-    elif answer == "quit" or answer == "stop":
-        exit()
-    
+        
 class Scene(object):
     
-    def enter(self):
-        exit(1)
+    pass
         
 class Engine(object):
     
     def __init__(self, scene_map):
         self.scene_map = scene_map
-
-        
+ 
     def play(self):
-        current_scene = self.scene_map.opening_scene()
-                                 
-        print """
-                                    o 0           ~~~ANXIETY~~~        o 0
-                                    ^^^                                ^^^  
-                                
-                                          a game by Wendy Dherin"""
+        
+        # initial clearing of screen for game start
+        for i in range(100):
+            print ""
+        
+        # game header
+        str1 = "o 0           ~~~ANXIETY~~~        o 0"
+        str2 = "^^^                                ^^^"
+        str3 = "a game by Wendy Dherin"
+        print "\n", str1.center(50, " ")
+        print str2.center(50, " "), "\n"
+        print str3.center(50, " ")
+        for i in range(12):
+            print ""
+        print "(Hit 'Enter' to begin)".center(50, " ")
+        answer = raw_input()
+        
+        current_scene = self.scene_map.opening_scene()                                                              
+        
         while True:     
-            print "\n" * 25
-            print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             next_scene_name = current_scene.enter()
+            
+            # clear screen for next scene
+            for i in range(100):
+                print ""
+                
             current_scene = self.scene_map.next_scene(next_scene_name)        
+      
         
 class Bathroom(Scene):
     
     def enter(self):
-        clear_screen()
-        print "\nYour alarm goes off, and you wake up feeling so relaxed and well rested."
-        print "You really needed a good night's sleep like that, after all that's been going on!"
-        print "You get out of bed, yawn and stretch, look out the window, and smile. It's a"
-        print "gorgeous morning, and you have a profound sense that things are going to"
-        print "start turning around. You head into the bathroom to brush your teeth. Wow! You're"
-        print "looking great! One thing catches your eye though. Your right eye tooth ... it just ..."
-        print " flashed or something. You look closer ... and you see it's discolored. Now you feel the"
-        print " slight stirring of uneasiness in the pit of your belly. Part of you wants to ignore it."
-        print " The day is going way too well. Why ruin a good thing? But part of you wants to look"
-        print " closer. What do you do?"
+        for i in range(100):
+            print ""
+        print "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+        print "Your alarm goes off, and you wake up feeling so relaxed and well rested."
+        print "You get out of bed, yawn and stretch, look out the window, and smile."
+        print "It's a gorgeous morning, and you have a great sense of optimism."
+        print "You head into the bathroom to brush your teeth."
+        print "Wow! You're looking great this morning!"
+        print "One thing catches your eye though." 
+        print "Your right eye tooth. It just ..."
+        print "flashed or something."
+        print "You look closer ... and you see it's discolored." 
+        print "Now you feel a slight stirring of uneasiness in the pit of your belly." 
+        print "Part of you wants to ignore it."
+        print "But part of you wants to look closer.\n"
         
         while True:
             
-            answer = raw_input("type 'ignore' or 'look': ")
-        
-            if answer == "ignore":
-                clear_screen()
+            print "Do you ignore it, or do you look?"
+            
+            answer = raw_input("> ")
+            answer = answer.lower()
+            
+            if answer.__contains__("ignore"):
                 return 'brush_teeth'
         
-            elif answer == "look":
-                clear_screen()
+            elif answer.__contains__("look"):
                 return 'tooth_dialogue'
+                
+            elif answer == "pinch myself":
+                return 'wake'
+            
+            else:
+                continue
                 
                 
 class ToothDialogue(Scene):
+    
     def enter(self):
-        clear_screen()
-        print "You lean in closer to the mirror to examine the suspect tooth. It's more discolored than"
-        print "you thought. In fact ... there's a concave arc lined with tiny little hairs. It looks"
-        print "just like--"
-        print "all of a sudden, the little hairs flutter, and the concave arc moves, opening up into a brilliant"
-        print "bright green eye. You want to scream, but all of the air has rushed out of your lungs."
-        print "The eye blinks at you, innocently, and then you hear a voice in your head. A thin, whispery voice."
+        print "You lean in closer to the mirror to examine the suspect tooth." 
+        print "It's more discolored than you thought. In fact ... "
+        print "there's a concave arc lined with tiny little hairs."
+        print "It looks just like ..."
+        print "All of a sudden, the little hairs flutter, and the concave arc moves," 
+        print "opening up into a brilliant, bright green eye."
+        print "You want to scream, but all of the air has rushed out of your lungs."
+        print "The eye blinks at you, innocently, and then you hear a voice in your head." 
+        print "A thin, whispery voice."
         print "'I am your inner voice,' it says. 'Your true essential self; your deepest wisdom.'"
         print "'Shouldn't that be the role of my wisdom teeth?' you think."
-        print "You hear a sigh. 'You had them extracted in the 10th grade, remember? We eye teeth are heirs to their throne."
+        print "You hear a sigh. 'You had them extracted in the 10th grade, remember?"
+        print "We eye teeth are heirs to their throne."
         print "You realize the eye tooth can read your mind."
         print "'Why is it just you? What happened to my other eye tooth?'"
         print "'He's kind of a deadbeat, to be honest. I'm all you've got now."
         print "'So why now? What do you want from me?"
         print "'The question is, what do you want from me? I'm only here because you need me."
-        print "'If you can answer all three of my questions correctly, I'll grant you a wish. Are you game?"        
+        print "'If you can answer all three of my questions correctly, I'll grant you a wish."
+        print "Are you game?"        
                 
         while True:
             
             answer = raw_input("type 'yes' or 'no': ")
-        
+            answer = answer.lower()
+            
             if answer == "yes":
                 return 'riddle1'
         
@@ -103,24 +120,30 @@ class ToothDialogue(Scene):
     
             else: 
                 continue
+   
                     
 class BrushTeeth(Scene):
     
     def enter(self):
-        print "\nYou start brushing your teeth, pretending nothing weird happened just now."
-        print "But something's off. Your eye tooth is wiggling as you brush. It's loose! You stop"
-        print "brushing, put down the toothbrush, and gingerly take hold of your eye tooth with"
-        print "your fingers. As soon as you touch it, it falls into the palm of your hand. You look"
-        print "in the mirror and see a ridiculous gap where your tooth once was. You close your eyes"
-        print " in anguish. Why you?! Now you're going to have to face everyone today looking like"
-        print "this. All of a sudden, like an avalanche, all of your teeth start crumbling and falling"
-        print "into your mouth, and you start gagging on them."
-        return 'wake'
+        print "You start brushing your teeth, pretending nothing weird happened just now."
+        print "But something's off."
+        print "Your eye tooth is wiggling as you brush."
+        print "You stop brushing and gingerly take hold of your eye tooth with your fingers."
+        print "As soon as you touch it, it falls into the palm of your hand!"
+        print "You look in the mirror and see a ridiculous gap where your tooth once was."
+        print "You close your eyes in anguish. Why you?!"
+        print "All of a sudden, like an avalanche, all of your teeth start falling into your mouth."
+        print "You are horrified, and start screaming."
+        print "What do you scream?"
+        answer = raw_input("> ")
+        return "wake"
+     
         
 class Riddle(Scene):
     
     def enter(self):
         exit(1)
+      
         
 class RiddleOne(Riddle):
     
@@ -133,12 +156,18 @@ class RiddleOne(Riddle):
         
         if answer.__contains__("mobius") or answer.__contains__("moebius"):
             return "riddle2"
+        
+        elif answer == "pinch myself":
+            return 'wake'
+                
         else:
             print "'Wow. I don't think you even tried,' says the eye tooth."
-            print "'I don't know why I even waste my time.' And with that, the eye closes, and "
-            print "your tooth goes back to normal. You decide it was a weird hallucination and "
-            print "try to put it all behind you."
+            print "'I don't know why I even waste my time.' And with that, the eye closes, and"
+            print "your tooth goes back to normal."
+            print "(Hit 'Enter' to continue)"
+            answer = raw_input()
             return "brush_teeth"
+
 
 class RiddleTwo(Riddle):
     
@@ -151,14 +180,15 @@ class RiddleTwo(Riddle):
         answer = answer.lower()
         
         if answer.__contains__("uroboros"):
+            
             return "riddle3"
         
         else:
-            print "Geez louise. That serpent may have its ass up its head, but you have it the other"
-            print "way around. I don't know why I bothered. And with that, the eye closes, and "
-            print "your tooth goes back to normal. You decide it was a weird hallucination and "
-            print "try to put it all behind you."
+            print "'Geez louise,' says the eye tooth."
+            print "'That serpent may have its ass up its head, but you have it the other way around.'"
+            print "And with that, the eye closes, and your tooth goes back to normal."
             return "brush_teeth"
+
 
 class RiddleThree(Riddle):
     
@@ -171,20 +201,24 @@ class RiddleThree(Riddle):
         answer = answer.lower()
         
         if answer.__contains__("hofstadter"):
+            
             return "wishes"
         
         else:
             print "You hear a groan. 'Really?? That's your answer?' The eye tooth closes its eye and "
-            print " disappears. You were so close! Or was it just a weird hallucination? You decide to"
-            print "try to put it all behind you."
+            print " disappears. You were so close! Or was it just a weird hallucination?"             
             return "brush_teeth"
+
 
 class Wishes(object):
     def enter(self):
-        print "'Congratulations!' the eye tooth says, beaming with delight. 'You've correctly answered all"
-        print " three riddles.' For that, you have your choice of three options, each of them a dream come true."
-        print " You can choose to be young again. Or, you can choose to experience true love. Or, you can choose "
-        print "to have the ability to fly. What will it be?"
+        print "'Congratulations!' the eye tooth says, beaming with delight."
+        print "'You've correctly answered all three riddles."
+        print "For that, you have your choice of three options, each of them a dream come true:"
+        print "You can choose to be young again."
+        print "Or, you can choose to experience true love."
+        print "Or, you can choose to have the ability to fly."
+        print "What will it be?"
 
         while True:
                     
@@ -204,11 +238,13 @@ class Wishes(object):
                 print "That wasn't one of your choices. Do you want to be young again, to have true love, or to fly?"
                 continue
 
+
 class School(object):
 
     def enter(self):
         print "This scene is not yet configured."
         exit(1)
+        
         
 class Sex(object):
 
@@ -216,11 +252,13 @@ class Sex(object):
         print "This scene is not yet configured."
         exit(1)
 
+
 class Fly(object):
 
     def enter(self):
         print "This scene is not yet configured."
         exit(1)
+         
                         
 class School(Scene):
     
@@ -250,6 +288,7 @@ class School(Scene):
             else: 
                 continue
                 
+                
 class Locker(Scene):
     
     def enter(self):
@@ -267,7 +306,6 @@ class Locker(Scene):
             print "You grab the neutron bomb and run as fast as you can to the"
             print "bridge where you must place it in the right spot."
        
-            
         else:
             print "The lock buzzes one last time and then you hear a sickening"
             print "melting sound as the mechanism is fused together."
@@ -276,9 +314,11 @@ class Locker(Scene):
 
                         
 class Chase(Scene):
+    
     def enter(self):
         print "This scene is not yet configured."
         exit(1)
+        
         
 class EscapePod(Scene):
     
@@ -310,22 +350,35 @@ class EscapePod(Scene):
             print "time. You won!"
             
             return "finished"
+       
             
 class Wake(Scene):
     
     quips = [
-        "Sheesh. Freud would have a field day with that one.\n", 
-        "Yikes. That was rough. Maybe you should stay away from dairy before bed.\n",
-        "Dang. If that's your dreamworld, I'd hate to see your reality.\n",
-        "Ahem. Excuse me, your Freudian slip is showing.\n"
+        "(Sheesh. Freud would have a field day with that one.)\n", 
+        "(Yikes. That was rough. Maybe you should stay away from dairy before bed.)\n",
+        "(Dang. If that's your dreamworld, I'd hate to see your reality.)\n",
+        "(Ahem. Excuse me, your Freudian slip is showing.)\n"
     ]
     
     def enter(self):
-        print "You wake up in a cold sweat, your heart racing. Thank god! It was all just a bad dream. Now you can go back to sleep and get some rest..."
-        print "    IF YOU DARE!!!!!\n"
+        print "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+        print "You wake up screaming." 
+        print "Your heart is racing.\n"
+        print "Thank god! It was all just a bad dream."
+        print "Now you can go back to sleep and get some rest..."
+        print " "
+        print "... if you DARE!!!!!\n"
         print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-        print Wake.quips[randint(0, len(self.quips)-1)]
+        print " "
+        str = "GAME OVER"
+        print " "
+        print str.center(50, " ")
+        print " "
+        str = Wake.quips[randint(0, len(self.quips)-1)]
+        print str.center(50, " ")
         exit(1)
+           
             
 class Map(object):
     
