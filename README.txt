@@ -1,2 +1,2 @@
-Welcome to Anxiety, a Zork-like choose-your-own-adventure game!
+# Welcome to Anxiety, a text-based choose-your-own-adventure game
 
