@@ -73,7 +73,7 @@ class Bathroom(Scene):
             elif answer.__contains__("look"):
                 return 'tooth_dialogue'
                 
-            elif answer == "pinch myself":
+            elif answer.__contains__("pinch"):
                 return 'wake'
             
             else:
@@ -110,7 +110,7 @@ class ToothDialogue(Scene):
             elif answer == "no":
                 return 'brush_teeth'
             
-            elif answer == "pinch myself":
+            elif answer.__contains__("pinch"):
                 return 'wake'    
     
             else: 
@@ -154,7 +154,7 @@ class RiddleOne(Riddle):
         if answer.__contains__("mobius") or answer.__contains__("moebius"):
             return "riddle2"
         
-        elif answer == "pinch myself":
+        elif answer.__contains__("pinch"):
             return 'wake'
                 
         else:
@@ -182,6 +182,8 @@ class RiddleTwo(Riddle):
         
         if answer.__contains__("uroboros"):  
             return "riddle3"
+        elif answer.__contains__("pinch"):
+            return 'wake'
         
         else:
             for i in range(100):
@@ -211,6 +213,8 @@ class RiddleThree(Riddle):
         
         if answer.__contains__("hofstadter"):
             return "wishes"
+        elif answer.__contains__("pinch"):
+            return 'wake'
         
         else:
             for i in range(100):
@@ -246,6 +250,8 @@ class Wishes(object):
         
             elif answer.__contains__("fly") or answer.__contains__("3"):
                 return "fly"
+            elif answer.__contains__("pinch"):
+                return 'wake'
             
             else:
                 print "\nThat wasn't one of your choices."
@@ -307,7 +313,7 @@ class School(Scene):
             elif answer.__contains__("locker") or answer.__contains__("shorts"):
                 return "locker"
             
-            elif answer == "pinch myself":
+            elif answer.__contains__("pinch"):
                 return "wake"
             
             else: 
