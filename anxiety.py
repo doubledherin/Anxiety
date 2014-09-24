@@ -457,7 +457,8 @@ class Map(object):
         
     def opening_scene(self):
         return self.next_scene(self.start_scene)
-        
-the_map = Map('bathroom')
-the_game = Engine(the_map)
-the_game.play()
+
+if __name__ == "__main__":    
+    the_map = Map('bathroom')
+    the_game = Engine(the_map)
+    the_game.play()
