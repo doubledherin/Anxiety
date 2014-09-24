@@ -272,7 +272,44 @@ class School(object):
 class Sex(object):
 
     def enter(self):
-        print "This scene is not yet configured."
+        print """
+        You hear someone calling your name.
+        It's a familiar voice, a voice that pulls at your heart ....
+        and at your loins.
+
+        And then you remember: it's the love of your life.
+        
+        You hear your love calling your name again, seductively.
+
+        You forget about your tooth and all that weirdness and return to the bedroom.
+
+        You crawl under the sheets and embrace your love.
+
+        It's the most comforting and exicting feeling, to be this close 
+        to someone you adore so much.
+
+        Soon, the cuddles turn into kisses, first sweet, and then more and more 
+        passionate.
+
+        Before you know it, you're having sex, again, and even though it's always been amazing
+        this time, you think you might die and go to heaven.
+
+        Your lover's hand touch your face ... but it's not a caress. It's a wet thumb,
+        wiping schmutz off your face.
+
+        "Honey, you've got toothpaste on your face."
+
+        It takes you out of the moment, and you look up in confusion.
+
+        And you see your mother.
+
+        "You're doing very well," she assures you. "Don't give up! Keep going!"
+
+        You open your mouth to scream.
+
+        What do you scream?"""
+        answer = raw_input("> ")
+        return "wake"
         exit(1)
 
 
