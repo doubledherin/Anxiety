@@ -46,19 +46,19 @@ class Bathroom(Scene):
     def enter(self):
         for i in range(100):
             print ""
-        print "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-        print "Your alarm goes off, and you wake up feeling so relaxed and well rested."
-        print "You get out of bed, yawn and stretch, look out the window, and smile."
-        print "It's a gorgeous morning, and you have a great sense of optimism."
-        print "You head into the bathroom to brush your teeth."
-        print "Wow! You're looking great this morning!"
-        print "One thing catches your eye though." 
-        print "Your right eye tooth. It just ..."
-        print "flashed or something."
-        print "You look closer ... and you see it's discolored." 
-        print "Now you feel a slight stirring of uneasiness in the pit of your belly." 
-        print "Part of you wants to ignore it."
-        print "But part of you wants to look closer.\n"
+        print """\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n
+        Your alarm goes off, and you wake up feeling so relaxed and well rested.
+        You get out of bed, yawn and stretch, look out the window, and smile.
+        It's a gorgeous morning, and you have a great sense of optimism.
+        You head into the bathroom to brush your teeth.
+        Wow! You're looking great this morning!
+        One thing catches your eye though. 
+        Your right eye tooth. It just ...
+        flashed or something.
+        You look closer ... and you see it's discolored. 
+        Now you feel a slight stirring of uneasiness in the pit of your belly.
+        Part of you wants to ignore it.
+        But part of you wants to look closer.\n"""
         
         while True:
             
@@ -83,21 +83,21 @@ class Bathroom(Scene):
 class ToothDialogue(Scene):
     
     def enter(self):
-        print "What the?!?\n"
-        print "You see that the eye tooth has a brilliant, bright green eye."
-        print "The eye blinks at you innocently,"
-        print "and then you hear a thin, whispery voice.\n" 
-        print "TOOTH: I am your inner voice. Your true essential self; your deepest wisdom.\n"
-        print "YOU: Shouldn't that be the role of my wisdom teeth?\n"
-        print "TOOTH: You had them extracted, remember?"
-        print "We eye teeth are heirs to their throne.\n"
-        print "YOU: So why is it just you? What happened to my other eye tooth?\n"
-        print "TOOTH: Oh, him? He's kind of a deadbeat. I'm all you've got now.\n"
-        print "YOU: So why now? What do you want from me?\n"
-        print "TOOTH: The question is, what do you want from me?"
-        print "If you can answer all three of my questions correctly,"
-        print "I can make you very happy."
-        print "Are you game?\n"        
+        print """What the?!?
+        You see that the eye tooth has a brilliant, bright green eye.
+        The eye blinks at you innocently,
+        and then you hear a thin, whispery voice.
+        TOOTH: I am your inner voice. Your true essential self; your deepest wisdom.
+        YOU: Shouldn't that be the role of my wisdom teeth?
+        TOOTH: You had them extracted, remember?
+        We eye teeth are heirs to their throne.
+        YOU: So why is it just you? What happened to my other eye tooth?
+        TOOTH: Oh, him? He's kind of a deadbeat. I'm all you've got now.
+        YOU: So why now? What do you want from me?
+        TOOTH: The question is, what do you want from me?
+        If you can answer all three of my questions correctly,
+        I can make you very happy.
+        Are you game?\n"""        
                 
         while True:
             
@@ -120,16 +120,16 @@ class ToothDialogue(Scene):
 class BrushTeeth(Scene):
     
     def enter(self):
-        print "You start brushing your teeth, pretending nothing weird happened just now."
-        print "But something's off."
-        print "Your eye tooth is wiggling as you brush."
-        print "You stop brushing and gingerly take hold of your eye tooth with your fingers."
-        print "As soon as you touch it, it falls into the palm of your hand!"
-        print "You look in the mirror and see a ridiculous gap where your tooth once was."
-        print "You close your eyes in anguish. Why you?!"
-        print "All of a sudden, like an avalanche, all of your teeth start falling into your mouth."
-        print "You are horrified, and start screaming."
-        print "What do you scream?"
+        print """You start brushing your teeth, pretending nothing weird happened just now.
+        But something's off.
+        Your eye tooth is wiggling as you brush.
+        You stop brushing and gingerly take hold of your eye tooth with your fingers.
+        As soon as you touch it, it falls into the palm of your hand!
+        You look in the mirror and see a ridiculous gap where your tooth once was.
+        You close your eyes in anguish. Why you?!
+        All of a sudden, like an avalanche, all of your teeth start falling into your mouth.
+        You are horrified, and start screaming.
+        What do you scream?"""
         answer = raw_input("> ")
         return "wake"
      
@@ -143,10 +143,10 @@ class Riddle(Scene):
 class RiddleOne(Riddle):
     
     def enter(self):
-        print "Your eye tooth clears its throat."
-        print "'The first riddle is the easiest,' it says.\n"
-        print "'What is the name of a surface with only one side"
-        print "and only one boundary component?'"
+        print """Your eye tooth clears its throat.
+        'The first riddle is the easiest,' it says.
+        'What is the name of a surface with only one side
+        and only one boundary component?'"""
         
         answer = raw_input("> ")
         answer = answer.lower()
@@ -160,11 +160,11 @@ class RiddleOne(Riddle):
         else:
             for i in range(100):
                 print ""
-            print "'Wow. I don't think you even tried,' says the eye tooth."
-            print "'I don't know why I even waste my time.' And with that, the eye closes, and"
-            print "your tooth goes back to normal.\n"
-            print "You decide the whole thing must have been a hallucination.\n"
-            print "(Hit 'Enter' to continue)"
+            print """'Wow. I don't think you even tried,' says the eye tooth.
+            'I don't know why I even waste my time.' And with that, the eye closes, and
+            your tooth goes back to normal.
+            You decide the whole thing must have been a hallucination.
+            (Hit 'Enter' to continue)"""
             answer = raw_input()
             return "brush_teeth"
 
@@ -172,10 +172,10 @@ class RiddleOne(Riddle):
 class RiddleTwo(Riddle):
     
     def enter(self):
-        print "'That's right!' the tooth says."
-        print "'Hey, remember that '80s band Pop Will Eat Itself?' asks the tooth."
-        print "'They were cool. Anyway, your second riddle is this:'\n"
-        print "What is the name of the serpent that eats its own tail?"
+        print """'That's right!' the tooth says.
+        'Hey, remember that '80s band Pop Will Eat Itself?' asks the tooth.
+        'They were cool. Anyway, your second riddle is this:'
+        What is the name of the serpent that eats its own tail?"""
         
         answer = raw_input("> ")
         answer = answer.lower()
@@ -188,11 +188,11 @@ class RiddleTwo(Riddle):
         else:
             for i in range(100):
                 print ""
-            print "'Geez louise,' says the eye tooth."
-            print "'That serpent may have its ass up its head,"
-            print "but you have it the other way around.'"
-            print "And with that, the eye closes, and your tooth goes back to normal.\n"
-            print "(Hit 'Enter' to continue)"
+            print """'Geez louise,' says the eye tooth.
+            'That serpent may have its ass up its head,
+            but you have it the other way around.'
+            And with that, the eye closes, and your tooth goes back to normal.
+            (Hit 'Enter' to continue)"""
             answer = raw_input()
             return "brush_teeth"
 
@@ -200,13 +200,11 @@ class RiddleTwo(Riddle):
 class RiddleThree(Riddle):
     
     def enter(self):
-        print "'You got it!' says the tooth."
-        print "'Okay, last one, and then I'll grant you a wish.'"
-        print "'You're really close!' the eye says, 'Don't screw it up:'\n"
-        print "What is the last name"
-        print "of the strange loop"
-        print "who's most popular work"
-        print "is often referred to by its acronym, G.E.B.?\n"
+        print """'You got it!' says the tooth.
+        'Okay, last one, and then I'll grant you a wish.'
+        'You're really close!' the eye says, 'Don't screw it up:'
+        What is the last name of the strange loop whose most popular work
+        is often referred to by its acronym, G.E.B.?\n"""
         
         answer = raw_input("> ")
         answer = answer.lower()
@@ -219,23 +217,23 @@ class RiddleThree(Riddle):
         else:
             for i in range(100):
                 print ""
-            print "You hear a groan."
-            print "'Really?!? That's your answer?!?'"
-            print "The eye tooth closes its eye and disappears."
-            print "(Hit 'Enter' to continue)"
+            print """You hear a groan.
+           'Really?!? That's your answer?!?'
+           The eye tooth closes its eye and disappears.\n
+           (Hit 'Enter' to continue)"""
             answer = raw_input()            
             return "brush_teeth"
 
 
 class Wishes(object):
     def enter(self):
-        print "'Congratulations!' the eye tooth says, beaming with delight."
-        print "'You've correctly answered all three riddles!!!'\n"
-        print "For that, you have your choice of three options, each of them a dream come true:"
-        print "1. You can choose to be young again."
-        print "2. You can choose to experience true love."
-        print "3. You can choose to have the ability to fly.\n"
-        print "What will it be?"
+        print """'Congratulations!' the eye tooth says, beaming with delight.
+        'You've correctly answered all three riddles!!!'\n
+        For that, you have your choice of three options, each of them a dream come true:
+        1. You can choose to be young again.
+        2. You can choose to experience true love.
+        3. You can choose to have the ability to fly.\n
+        What will it be?"""
 
         while True:
                     
@@ -254,11 +252,11 @@ class Wishes(object):
                 return 'wake'
             
             else:
-                print "\nThat wasn't one of your choices."
-                print "Do you want:"
-                print "1. to be young again"
-                print "2. to have true love"
-                print "3. the ability to fly?\n"
+                print """\nThat wasn't one of your choices.
+                Do you want:
+                1. to be young again
+                2. to have true love
+                3. the ability to fly?\n"""
                 continue
 
 
@@ -323,21 +321,21 @@ class Fly(object):
 class School(Scene):
     
     def enter(self):
-        print "You're suddenly in a large hallway filled with lockers."
-        print "It looks like a high school. In fact ..."
-        print "it's YOUR high school!"
-        print "You look down and realize you're a teenager again ... \n"
-        print "and that you aren't wearing any pants." 
-        print "Or underwear, for that matter."
-        print "Your heart starts racing."
-        print "The hallway is empty but you look at your watch and realize"
-        print "that the bell is going to ring in 2 minutes."
-        print "Then everyone will come pouring out of the classrooms"
-        print "to find you buck naked from the waist down."
-        print "You suddenly remember that you have some gym shorts in your locker."
-        print "You can either make a run for a hiding place,"
-        print "or you can run to your locker and get out those shorts.\n"
-        print "What's it going to be?"
+        print """You're suddenly in a large hallway filled with lockers.
+        It looks like a high school. In fact ...
+        it's YOUR high school!
+        You look down and realize you're a teenager again ... \n
+        and that you aren't wearing any pants.
+        Or underwear, for that matter.
+        Your heart starts racing.
+        The hallway is empty but you look at your watch and realize
+        that the bell is going to ring in 2 minutes.
+        Then everyone will come pouring out of the classrooms
+        to find you buck naked from the waist down.
+        You suddenly remember that you have some gym shorts in your locker.
+        You can either make a run for a hiding place,
+        or you can run to your locker and get out those shorts.\n
+        What's it going to be?"""
 
         while True:
         
